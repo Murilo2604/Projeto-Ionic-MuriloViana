@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Piupiuwer
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)='logar()'>
+    <ion-item>
+      <ion-label stacked>Username:</ion-label>
+      <ion-input required type='text' [(ngModel)]='usuario.username' name='username'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Senha:</ion-label>
+      <ion-input required type='password' [(ngModel)]='usuario.password' name='senha'></ion-input>
+    </ion-item>
+
+    <button ion-button block type='submit'>Entrar</button>
+  </form>
+
+  <p>Não possui cadastro? <strong>Cadastre-se</strong> clicando no <strong>botão abaixo:</strong></p>
+
+  <ion-fab middle center>
+    <button ion-fab (click)='irPaginaCadastro()'>
+        <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
