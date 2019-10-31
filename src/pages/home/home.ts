@@ -103,7 +103,7 @@ export class HomePage {
         }
       }
     } else {  // Caso ele tenha sido favoritado, o piu é adicionado à lista de pius favoritados e é adicionado a ele uma classe na lista de pius normal que o deixa com display: none
-      this.piusFavoritados.push(piu);
+      this.piusFavoritados.unshift(piu);
     }
   }
 
