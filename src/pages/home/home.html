@@ -1,30 +1,71 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar #content>
+    <button ion-button menuToggle>
+      <ion-icon class="botaoMenu" name="menu"></ion-icon>
+    </button>
     <ion-title>
-      Piupiuwer
+      <span class="titulo">Feed</span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+<ion-menu [content]="content" side="start" type="overlay">
+    <ion-header>
+        <ion-toolbar>
+        <ion-title><span class="menuTitulo">Menu</span></ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item class="itemMenu" (click) ="irHomePage()">Home</ion-item>
+            <ion-item class="itemMenu" (click)="irMeuPerfil()">Meu Perfil</ion-item>
+            <ion-item class="itemMenu" (click)="deslogar()">Sair</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
 <ion-content padding>
-  <form (ngSubmit)='logar()'>
-    <ion-item>
-      <ion-label stacked>Username:</ion-label>
-      <ion-input required type='text' [(ngModel)]='usuario.username' name='username'></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>Senha:</ion-label>
-      <ion-input required type='password' [(ngModel)]='usuario.password' name='senha'></ion-input>
-    </ion-item>
-
-    <button ion-button block type='submit'>Entrar</button>
-  </form>
-
-  <p>Não possui cadastro? <strong>Cadastre-se</strong> clicando no <strong>botão abaixo:</strong></p>
-
-  <ion-fab bottom center>
-    <button ion-fab (click)='irPaginaCadastro()'>
-        <ion-icon name="create"></ion-icon>
+    <ion-list class="feed" *ngFor='let piu of piusFavoritados'>
+      <div class="piu" let favoritado of favoritado>
+          <ion-fab end>
+            <button ion-fab [class.iconeFavoritoTrue]="piu.favoritado == true" [class.iconeFavoritoFalse]="piu.favoritado == false" (click)="favoritarToggle(piu)">
+              <ion-icon  name="star-outline"></ion-icon>
+            </button>
+          </ion-fab>
+          <div class="informacoesPerfil">
+              <img src="../../assets/imgs/padraoPerfil1.jpg" (click)="irPerfil(piu.usuario)">
+              <h4 class="username" (click)="irPerfil(piu.usuario)">{{ piu.usuario.username }}</h4>
+          </div>
+          <p>{{ piu.conteudo }}</p>
+          <ion-fab end>
+            <button (click)="eliminarPiu(piu)" ion-fab class="iconeDeletar">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-fab>
+      </div>
+    </ion-list>
+  <ion-list class="feed" *ngFor='let piu of pius'>
+    <div [class.favoritado] = "piu.favoritado == true" class="piu" let favoritado of favoritado>
+      <ion-fab end>
+        <button ion-fab [class.iconeFavoritoTrue]="piu.favoritado == true" [class.iconeFavoritoFalse]="piu.favoritado == false" (click)="favoritarToggle(piu)">
+          <ion-icon  name="star-outline"></ion-icon>
+        </button>
+      </ion-fab>
+      <div class="informacoesPerfil">
+        <img src="../../assets/imgs/padraoPerfil1.jpg" (click)="irPerfil(piu.usuario)">
+        <h4 class="username" (click)="irPerfil(piu.usuario)">{{ piu.usuario.username }}</h4>
+      </div>
+      <p>{{ piu.conteudo }}</p>
+      <ion-fab end>
+        <button (click)="eliminarPiu(piu)" ion-fab class="iconeDeletar">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+  </ion-list>
+  <ion-fab bottom end>
+    <button ion-fab class="iconePiu"  (click)='irPiuPage()'>
+      <img src="../../assets/imgs/iconeLogo.png">
     </button>
   </ion-fab>
 </ion-content>

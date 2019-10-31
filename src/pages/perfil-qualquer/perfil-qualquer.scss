@@ -1,26 +1,13 @@
-page-home {
-
-    .deletar {
-        padding-top: 5px;
+page-perfil-qualquer {
+    .subtitle-card {
+        font-size: 1.2rem;
     }
 
-    .iconeDeletar {
-        background-color: #8f399a;
-        color: white;
-    }
-
-    .favoritado {
-        display: none;
-    }
-
-    .iconeFavoritoTrue {
-        background-color: #8f399a;
-        color: white;
-    }
-
-    .iconeFavoritoFalse {
-        background-color: white;
-        color: #8f399a;
+    .imagemConteiner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .iconePiu:active {
@@ -68,7 +55,6 @@ page-home {
         color: black;
         width: 100%;
         border-bottom: 0.01rem solid #8f399a;
-        padding: 70px 0;
     }
 
     h2 {

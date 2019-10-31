@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar let usuario of usuario>
+    <ion-title>{{ usuario.first_name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="imagemConteiner">
+      <img src="../../assets/imgs/padraoPerfil1Maior.jpg">
+    </div>
+    <ion-card let usuario of usuario>
+      <ion-card-header>
+        <ion-card-title>Perfil de {{ usuario.first_name }} {{ usuario.last_name }}</ion-card-title>
+        <ion-card-title class="subtitle-card">{{ usuario.email }} | {{ usuario.username }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  
+    <ion-list class="feed" *ngFor='let piu of pius'>
+      <div class="piu">
+          <div class="informacoesPerfil">
+              <img src="../../assets/imgs/padraoPerfil1.jpg">
+              <h4 class="username">{{ piu.usuario.username }}</h4>
+          </div>
+          <p>{{ piu.conteudo }}</p>
+      </div>
+    </ion-list>
+  </ion-content>

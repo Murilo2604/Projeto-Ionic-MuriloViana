@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpParams, HttpClient } from '@angular/common/http';
 import { AlertController, LoadingController } from 'ionic-angular';
 import { Usuario } from '../../models/usuario';
+import { Piu } from '../../models/piu';
 
 
 @Injectable()
@@ -33,6 +34,20 @@ export class ApiClienteProvider {
       .set('password', usuario.password)
     });
   }
-  
 
+  carregaPius() {
+    return this._http.get<Piu[]>(this._url + '/pius/');
+  }
+
+  enviaPiu(piu: Piu) {
+    return this._http.post(this._url + '/pius/', JSON.stringify(piu), {
+      headers: new HttpHeaders().set('Content-type', 'application/json'),
+      params: new HttpParams().set('conteudo', piu.conteudo)
+      .set('data', piu.data)
+    });
+  }
+
+  getUsuario(user_id: number) {
+    return this._http.get<Usuario>(this._url + '/usuarios/' + user_id);
+  }
 }

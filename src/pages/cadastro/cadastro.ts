@@ -11,7 +11,7 @@ import { HomePage } from "../home/home"
 })
 export class CadastroPage {
 
-  public usuario: Usuario = { username: '', password: '', email: '', first_name: '', last_name: '' };
+  public usuario: Usuario = { id: 0, username: '', password: '', email: '', first_name: '', last_name: '', foto_perfil: '' };
   public confirmacao_senha: string = '';
 
   constructor(public navCtrl: NavController,

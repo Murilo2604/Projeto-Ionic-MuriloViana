@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title> <strong class="title">Novo Piu</strong> </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="body" padding>
+  <form (ngSubmit)='enviar()' class="form" let conteudo of conteudo>
+    <!--A classe excesso, que o estiliza de forma diferente, é adicionada ao contador caso ele ultrapasse o limite de caracteres-->
+    <ion-fab [class.excesso]="conteudo.length > 140" class="contador">{{ 140 - conteudo.length }}</ion-fab>
+    <ion-fab end>
+      <button type="submit" class="enviarPiu" ion-fab>
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-fab>
+    <ion-textarea name="conteudo" (input)="contaCaracteres()" [(ngModel)]="conteudo" placeholder="Dê um piu!" class="conteudoPiu"></ion-textarea>
+  </form>
+</ion-content>

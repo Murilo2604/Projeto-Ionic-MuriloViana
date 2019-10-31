@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar #content>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Configurações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-menu [content]="content" side="start" type="overlay">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title><span class="menuTitulo">Menu</span></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item class="itemMenu" (click)="changePage(HomePage)">Home</ion-item>
+      <ion-item class="itemMenu" (click)="changePage(PerfilPage)">Meu Perfil</ion-item>
+      <ion-item class="itemMenu" (click)="changePage(ConfiguracoesPage)">Configurações</ion-item>
+      <ion-item class="itemMenu" (click)="deslogar()">Sair</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<ion-content padding>
+
+</ion-content>

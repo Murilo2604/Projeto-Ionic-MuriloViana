@@ -1,3 +1,49 @@
 page-login {
 
+    .body {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .imagem {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .negrito {
+        color: #8f399a;
+    }
+
+    .button-ios {
+        background-color: #8f399a;
+    }
+
+    .botaoLogar:focus {
+        background-color: white;
+        color: #8f399a;
+    }
+
+    .botaoLogar:active {
+        background-color: white;
+        color: #8f399a;
+    }
+
+    .botaoCadastro:active {
+        background-color: white;
+        color: #8f399a;
+    }
+
+    .botaoLogar {
+        background-color: #8f399a;
+    }
+
+    .botaoCadastro {
+        background-color: #8f399a;
+    }
+
 }

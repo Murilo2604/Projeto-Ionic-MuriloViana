@@ -11,13 +11,21 @@ import { HomePage } from '../pages/home/home';
 import { ApiClienteProvider } from '../providers/api-cliente/api-cliente';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { LoginPage } from '../pages/login/login'
+import { PerfilPage } from '../pages/perfil/perfil';
+import { PiuPage } from '../pages/piu/piu';
+import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+import { PerfilQualquerPage } from '../pages/perfil-qualquer/perfil-qualquer';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     CadastroPage,
-    LoginPage
+    LoginPage,
+    PerfilPage,
+    PiuPage,
+    ConfiguracoesPage,
+    PerfilQualquerPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +34,7 @@ import { LoginPage } from '../pages/login/login'
     IonicStorageModule.forRoot({
       name: "piupiuer",
       storeName: "tokens",
-      driverOrder: ["indexeddb", "sqlite", "mysql"]
+      driverOrder: ["indexeddb", "sqlite", "websql"]
     })
   ],
   bootstrap: [IonicApp],
@@ -34,7 +42,11 @@ import { LoginPage } from '../pages/login/login'
     MyApp,
     HomePage,
     CadastroPage,
-    LoginPage
+    LoginPage,
+    PerfilPage,
+    PiuPage,
+    ConfiguracoesPage,
+    PerfilQualquerPage
   ],
   providers: [
     StatusBar,
